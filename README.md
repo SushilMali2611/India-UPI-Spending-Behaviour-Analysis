@@ -8,11 +8,11 @@ This project analyses 15,900 raw UPI transaction records from the BudgetWise Per
 
 ## Tech Stack
 
-- 📊 **Power BI Desktop** — main dashboard/visualisation layer (single interactive dashboard, live link below)
+- 📊 **Power BI Desktop** — main dashboard/visualisation layer (single interactive dashboard, template file included)
 - 📂 **Excel** — data cleaning + pivot table analysis (no dashboard sheet; Power BI is the single dashboard for this project)
 - 🛢️ **SQL (MySQL Workbench)** — 6 analytical queries (window functions, CTEs, RANK/DENSE_RANK, CASE WHEN tiering)
 - 🐍 **Python (Pandas, Matplotlib, Seaborn, scikit-learn)** — data cleaning pipeline, distribution/outlier analysis (boxplot), and a linear regression trend fit (R²) on monthly totals — kept deliberately narrow to complement, not duplicate, Excel/Power BI. No forward-looking forecast.
-- 📁 **File formats** — `.csv` (clean data), `.sql` (queries), `.xlsx` (pivots), `.ipynb` (notebooks), `.pbix` (dashboard), `.png` (chart/dashboard previews)
+- 📁 **File formats** — `.csv` (raw/clean data), `.sql` (queries), `.xlsx` (pivots), `.ipynb` (notebooks), `.pbit` (Power BI template), `.png` (chart/dashboard previews)
 
 ## Data Source
 
@@ -21,6 +21,25 @@ This project analyses 15,900 raw UPI transaction records from the BudgetWise Per
 15,900 raw rows | 900 duplicates removed | 150 users | 9 columns | multi-year date range (2021–2024)
 
 Each row is a single UPI transaction with date, category, payment mode, location, and amount, before cleaning.
+
+## Repository Structure
+
+```
+India-UPI-Spending-Behaviour-Analysis/
+├── 01_upi_raw.csv                                  (raw, uncleaned export)
+├── 02_upi_clean_final.xlsx                         (Excel: raw + clean + 3 pivots)
+├── 03_upi_clean_fixed_sql.csv                      (SQL-ready cleaned data)
+├── 04_upi.sql                                      (6 analytical queries)
+├── 05_upi_dashboardd.pbit                          (Power BI dashboard template)
+├── 05_z_India_UPI_Spending_Behavior_Analysis.png   (dashboard screenshot)
+├── 06_data_cleaning.ipynb                          (Python cleaning pipeline)
+├── 07_eda_visualisation.ipynb                      (monthly trend + boxplot)
+├── 08_A_chart_boxplot.png                          (boxplot export)
+├── 08_B_chart_trend.png                            (trend chart export)
+├── 09_forecast_model.ipynb                         (linear regression trend fit)
+├── 10_python_upi_clean.csv                         (Python-cleaned output)
+└── README.md
+```
 
 ## Features / Highlights
 
@@ -45,7 +64,7 @@ Raw UPI transaction exports are messy — mixed date formats, inconsistent curre
 - **Refund Analysis** (SQL Query 6) — refund count and value by category.
 - **Monthly Trend Chart** (Python) — total spend by month, 2021–2024.
 - **Boxplot by Category** (Python) — spread and outliers in transaction amount per category.
-- **Live Power BI Dashboard** — all of the above surfaced interactively with slicers by city/category/date.
+- **Power BI Dashboard** — all of the above surfaced interactively with slicers by Category, Payment Mode, Transaction Type, Year, and Outlier flag. KPI cards show Total Transactions (15K), Avg. Ticket Size (Rs 12.87K), UPI Adoption Rate (23.11%), and Total Refunds (151).
 
 ### Business Impact & Insights
 
@@ -76,13 +95,15 @@ Raw UPI transaction exports are messy — mixed date formats, inconsistent curre
 5. Transaction-size skew is extreme: LARGE txns (>Rs 2,000) are only 12,139 of ~14,949 rows across the four tiers by count but ~98.7% of total value (Rs 19.19Cr of Rs 19.44Cr) — most spending volume sits in a small number of high-value transactions.
 6. Jaipur has the highest average transaction value (Rs 14,070.16) despite Pune having the highest total city spend (Rs 1.94Cr) and highest transaction count (1,441).
 
-## Live Power BI Dashboard
+## Dashboard
 
-[Click here to view  dashboard](https://github.com/SushilMali2611/India-UPI-Spending-Behaviour-Analysis/blob/main/05_z_India_UPI_Spending_Behavior_Analysis.png)
+The interactive Power BI dashboard is included as a template file: [`05_upi_dashboardd.pbit`](05_upi_dashboardd.pbit) — open it in Power BI Desktop to explore live (slicers for Category, Payment Mode, Transaction Type, Year, and Outlier).
+
+A static preview is below in [Screenshots / Demo](#screenshots--demo).
 
 ## SQL Queries (MySQL Workbench)
 
-See `04_upi.sql`:
+See [`04_upi.sql`](04_upi.sql):
 
 - Query 1: Category summary (GROUP BY + window % calc)
 - Query 2: User spending rank (RANK + DENSE_RANK)
@@ -93,9 +114,19 @@ See `04_upi.sql`:
 
 ## Python — EDA & Trend Analysis
 
-- `01_data_cleaning.ipynb`: full cleaning pipeline (see Data Quality section)
-- `02_eda_visualisation.ipynb`: monthly trend chart + boxplot of amount distribution by category (outlier spread analysis)
-- `03_trend_model.ipynb`: linear regression trend fit on monthly totals (R² only — no forward forecast)
+- [`06_data_cleaning.ipynb`](06_data_cleaning.ipynb) — full cleaning pipeline (see Data Quality section)
+- [`07_eda_visualisation.ipynb`](07_eda_visualisation.ipynb) — monthly trend chart + boxplot of amount distribution by category (outlier spread analysis)
+- [`09_forecast_model.ipynb`](09_forecast_model.ipynb) — linear regression trend fit on monthly totals (R² only — despite the filename, no forward-looking forecast is produced; see [Trend Model](#trend-model))
+
+### How to run
+
+```bash
+pip install pandas matplotlib seaborn scikit-learn
+jupyter notebook
+# run in order: 06 → 07 → 09
+```
+
+Each notebook reads `10_python_upi_clean.csv` (or regenerates it from `01_upi_raw.csv` in `06_data_cleaning.ipynb`).
 
 ## Trend Model
 
@@ -107,7 +138,7 @@ Describes how well spending follows a linear trend across the observed months. N
 
 ## Screenshots / Demo
 
-Show what the dashboard looks like.
+Power BI dashboard:
 
 [![Dashboard Preview](05_z_India_UPI_Spending_Behavior_Analysis.png)](05_z_India_UPI_Spending_Behavior_Analysis.png)
 
