@@ -33,8 +33,8 @@ Key Findings:
 ●	Transaction-size skew is extreme: LARGE txns (>Rs 2,000) are only 12,139 of ~14,949 rows across the four tiers by count but ~98.7% of total value (Rs 19.19Cr of Rs 19.44Cr) -- most spending volume sits in a small number of high-value transactions.
 ●	Jaipur has the highest average transaction value (Rs 14,070.16) despite Pune having the highest total city spend (Rs 1.94Cr) and highest transaction count (1,441).
 
-Live Power BI Dashboard:
-[Click here to view live dashboard](YOUR_POWER_BI_LINK_HERE)
+View Power BI Dashboard:
+[Click here to view  dashboard](https://github.com/SushilMali2611/India-UPI-Spending-Behaviour-Analysis/blob/main/05_z_India_UPI_Spending_Behavior_Analysis.png)
 SQL Queries (MySQL Workbench)
 
 See 04_upi.sql:
