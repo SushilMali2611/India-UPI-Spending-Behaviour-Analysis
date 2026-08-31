@@ -78,7 +78,7 @@ Raw UPI transaction exports are messy — mixed date formats, inconsistent curre
 
 ## Live Power BI Dashboard
 
-[Click here to view live dashboard](YOUR_POWER_BI_LINK_HERE)
+[Click here to view  dashboard](https://github.com/SushilMali2611/India-UPI-Spending-Behaviour-Analysis/blob/main/05_z_India_UPI_Spending_Behavior_Analysis.png)
 
 ## SQL Queries (MySQL Workbench)
 
