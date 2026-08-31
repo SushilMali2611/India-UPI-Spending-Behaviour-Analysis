@@ -107,6 +107,6 @@ Describes how well spending follows a linear trend across the observed months. N
 
 ## Screenshots / Demo
 
-_Add a Power BI dashboard screenshot here, e.g. (https://github.com/SushilMali2611/India-UPI-Spending-Behaviour-Analysis/blob/main/05_z_India_UPI_Spending_Behavior_Analysis.png)_
+  Power BI dashboard screenshot (05_z_India_UPI_Spending_Behavior_Analysis.png)
 
-_Add `chart_trend.png` and `chart_boxplot.png` previews here_
+ `08_B_chart_trend.pn` and `08_A_chart_boxplot.png` previews here_
