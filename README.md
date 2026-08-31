@@ -107,6 +107,12 @@ Describes how well spending follows a linear trend across the observed months. N
 
 ## Screenshots / Demo
 
-  Power BI dashboard screenshot (05_z_India_UPI_Spending_Behavior_Analysis.png)
+Show what the dashboard looks like.
 
- `08_B_chart_trend.pn` and `08_A_chart_boxplot.png` previews here_
+[![Dashboard Preview](05_z_India_UPI_Spending_Behavior_Analysis.png)](05_z_India_UPI_Spending_Behavior_Analysis.png)
+
+Monthly spending trend and category-wise distribution from the Python EDA layer:
+
+[![Monthly Spending Trend](08_B_chart_trend.png)](08_B_chart_trend.png)
+
+[![Amount Distribution by Category](08_A_chart_boxplot.png)](08_A_chart_boxplot.png)
