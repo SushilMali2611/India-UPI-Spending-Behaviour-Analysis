@@ -1,4 +1,4 @@
-# ❄️ India UPI Spending Behaviour Analysis
+# 💸 India UPI Spending Behaviour Analysis
 
 An end-to-end analytics project exploring UPI transaction behaviour across India — spanning data cleaning, SQL analysis, Excel pivot tables, a Power BI dashboard, and a Python trend-fit model.
 
@@ -107,6 +107,6 @@ Describes how well spending follows a linear trend across the observed months. N
 
 ## Screenshots / Demo
 
-_Add a Power BI dashboard screenshot here, e.g. `dashboard_preview.png`_
+_Add a Power BI dashboard screenshot here, e.g. (https://github.com/SushilMali2611/India-UPI-Spending-Behaviour-Analysis/blob/main/05_z_India_UPI_Spending_Behavior_Analysis.png)_
 
 _Add `chart_trend.png` and `chart_boxplot.png` previews here_
